@@ -7,5 +7,7 @@ import java.util.List;
 public interface LoggerRepository {
     void createOrUpdateLog(Logger log);
 
+    void deleteLog(int id);
+
     List<Logger> getStudentLog(int id);
 }

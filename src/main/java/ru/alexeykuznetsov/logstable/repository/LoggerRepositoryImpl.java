@@ -19,12 +19,18 @@ public class LoggerRepositoryImpl implements LoggerRepository {
     @Override
     public void createOrUpdateLog(Logger log) {
         Session session = sessionFactory.getCurrentSession();
-        Student student = session.get(Student.class, log.getStudentId());
         if (!isStudentExist(log.getStudentId())) {
             throw new StudentNotFoundException("There is no student with this id");
         }
-        student.recordStudentLogs(log);
         session.saveOrUpdate(log);
+    }
+
+    @Override
+    public void deleteLog(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Query<Logger> loggerQuery = session.createQuery("delete from Logger where id =:logId");
+        loggerQuery.setParameter("logId", id);
+        loggerQuery.executeUpdate();
     }
 
     @Override

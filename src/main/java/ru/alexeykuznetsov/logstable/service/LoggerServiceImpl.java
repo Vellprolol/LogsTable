@@ -21,6 +21,13 @@ public class LoggerServiceImpl implements LoggerService {
 
     @Override
     @Transactional
+    public void deleteLog(int id) {
+        loggerRepository.deleteLog(id);
+    }
+
+
+    @Override
+    @Transactional
     public List<Logger> getStudentLog(int id) {
         List<Logger> logs = loggerRepository.getStudentLog(id);
         return logs;

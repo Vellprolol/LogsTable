@@ -52,7 +52,7 @@ public class ConnectionConfiguration {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan("ru.alexeykuznetsov.logstable");
+        sessionFactory.setPackagesToScan("ru.alexeykuznetsov.logstable.entity");
 
         Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty("hibernate.dialect", HIBERNATE_DIALECT);
@@ -69,3 +69,4 @@ public class ConnectionConfiguration {
         return transactionManager;
     }
 }
+

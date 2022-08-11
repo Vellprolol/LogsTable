@@ -42,6 +42,7 @@ public class Logger {
         this.date = date;
     }
 
+
     public Logger(int id, int studentId, String log, LocalDate date) {
         this.id = id;
         this.studentId = studentId;

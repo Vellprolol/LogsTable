@@ -1,6 +1,7 @@
 package ru.alexeykuznetsov.logstable.entity;
 
 
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
@@ -11,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.GenerationType;
 import javax.persistence.CascadeType;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -67,13 +67,6 @@ public class Student {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    public void recordStudentLogs(Logger log) {
-        if (logs == null) {
-            logs = new ArrayList<>();
-        }
-        logs.add(log);
     }
 
     @Override
