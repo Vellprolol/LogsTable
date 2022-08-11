@@ -33,8 +33,7 @@ public class LoggerRepositoryImpl implements LoggerRepository {
             throw new StudentNotFoundException("There is no student with this id");
         }
         Session session = sessionFactory.getCurrentSession();
-        Query<Logger> query = session.createQuery("from Logger where studentId >=:studentNumber" +
-                " and studentId <=:studentNumber");
+        Query<Logger> query = session.createQuery("from Logger where studentId =:studentNumber");
         query.setParameter("studentNumber", id);
         List<Logger> logsList = query.getResultList();
         return logsList;

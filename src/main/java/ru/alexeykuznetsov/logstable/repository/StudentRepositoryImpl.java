@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import ru.alexeykuznetsov.logstable.entity.Logger;
 import ru.alexeykuznetsov.logstable.entity.Student;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class StudentRepositoryImpl implements StudentRepository {
     @Override
     public void deleteStudent(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Query<Student> loggerQuery = session.createQuery("delete from Logger where studentId =:studentId");
+        Query<Logger> loggerQuery = session.createQuery("delete from Logger where studentId =:studentId");
         Query<Student> studentQuery = session.createQuery("delete from Student where id =:studentId");
         loggerQuery.setParameter("studentId", id);
         studentQuery.setParameter("studentId", id);
